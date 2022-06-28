@@ -15,13 +15,15 @@ export default function useCachedResources() {
         // Load fonts
         await Font.loadAsync({
           ...FontAwesome.font,
-          'space-mono': require('../assets/fonts/SpaceMono-Regular.ttf'),
+          'Neue-Haas-Grotesk-Regular': require('../assets/fonts/NHaasGroteskTXPro-55Rg.ttf'),
+          'Neue-Haas-Grotesk-Medium': require('../assets/fonts/NHaasGroteskTXPro-65Md.ttf'),
+          'Neue-Haas-Grotesk-Bold': require('../assets/fonts/NHaasGroteskTXPro-75Bd.ttf'),
         });
       } catch (e) {
-        // We might want to provide this error information to an error reporting service
         console.warn(e);
       } finally {
         setLoadingComplete(true);
+        console.log("done");
         SplashScreen.hideAsync();
       }
     }
