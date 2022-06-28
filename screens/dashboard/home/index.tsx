@@ -7,8 +7,10 @@ import communication from "../../../assets/images/communication.png";
 import report from "../../../assets/images/report.png";
 import membership from "../../../assets/images/membership.png";
 import { InfoCard } from "./components/infoCard";
+import { useNavigation } from "@react-navigation/native";
 
 export const Home = () => {
+  const {navigate} = useNavigation();
   return (
     <Conatiner>
       <Header title="Lion’s Club 404B1" />
@@ -25,6 +27,7 @@ export const Home = () => {
           <OptionCard
             imgHeight={79}
             imgwidth={62}
+            onPress={()=>navigate('DistrictDirectory')}
             imgSource={district_directory}
             backgroundColor="#E8FFFB"
             title="District Directory"

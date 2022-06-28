@@ -4,6 +4,7 @@
     "slug": "lions-club",
     "version": "1.0.0",
     "orientation": "portrait",
+    "owner":"dverybest",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",

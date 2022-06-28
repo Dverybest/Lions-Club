@@ -1,5 +1,6 @@
 import styled from "@emotion/native";
 import { FC } from "react";
+import { TextStyle } from "react-native";
 import { fontPixel, heightPixel, widthPixel } from "../../utils";
 import { BaseMediumText } from "../typography";
 
@@ -10,20 +11,26 @@ const ButtonStyle = styled.Pressable(({ theme }) => ({
   borderRadius: widthPixel(50),
   backgroundColor: theme.colors.primary,
   paddingVertical: heightPixel(14),
-  alignItems:'center',
+  alignItems: "center",
   paddingHorizontal: widthPixel(10),
 }));
-const ButtonText = styled(BaseMediumText)(({theme})=>({
-    color: theme.colors.white
+const ButtonText = styled(BaseMediumText)(({ theme }) => ({
+  color: theme.colors.white,
 }));
 type IPrimaryButton = {
   text: string;
-  onPress:()=>void
+  textStyle?: TextStyle;
+  onPress: () => void;
 };
-export const PrimaryButton: FC<IPrimaryButton> = ({ text,onPress }) => {
+export const PrimaryButton: FC<IPrimaryButton> = ({
+  text,
+  onPress,
+  textStyle,
+  ...rest
+}) => {
   return (
-    <ButtonStyle onPress={onPress}>
-      <ButtonText>{text}</ButtonText>
+    <ButtonStyle {...rest} onPress={onPress}>
+      <ButtonText style={textStyle}>{text}</ButtonText>
     </ButtonStyle>
   );
 };

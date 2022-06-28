@@ -1,15 +1,12 @@
-import { FontAwesome, Octicons } from "@expo/vector-icons";
+import {Octicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
 import { RootTabParamList } from "../types";
-import useColorScheme from "../../hooks/useColorScheme";
-import { Home } from "../../screens";
+import { ComingSoon, Home } from "../../screens";
 
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
 export const BottomTabNavigator = () => {
-  const colorScheme = useColorScheme();
-
   return (
     <BottomTab.Navigator
       initialRouteName="Home"
@@ -33,18 +30,17 @@ export const BottomTabNavigator = () => {
       })}
     >
       <BottomTab.Screen name="Home" component={Home} />
-      <BottomTab.Screen name="Profile" component={Home} />
-      <BottomTab.Screen name="Info" component={Home} />
+      <BottomTab.Screen
+        name="Profile"
+        listeners={({ navigation }) => ({
+          tabPress: (e) => {
+            e.preventDefault();
+            navigation.push('Profile'); 
+          },
+        })}
+        component={Home}
+      />
+      <BottomTab.Screen name="Info" component={ComingSoon} />
     </BottomTab.Navigator>
   );
 };
-
-/**
- * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
- */
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>["name"];
-  color: string;
-}) {
-  return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />;
-}

@@ -1,4 +1,5 @@
 import styled from "@emotion/native";
+import { useTheme } from "@emotion/react";
 import { useNavigation } from "@react-navigation/native";
 import { EdgeInsets, useSafeAreaInsets } from "react-native-safe-area-context";
 import lion from "../../../assets/images/lion.png";
@@ -11,11 +12,16 @@ import { IRootNav } from "../types";
 export const OTP = () => {
   const insets = useSafeAreaInsets();
   const { reset } = useNavigation<IRootNav>();
+  const { colors } = useTheme();
   return (
     <Container insets={insets}>
       <Logo source={lion} />
-      <Title>Lion’s Club 404B1</Title>
-      <CustumTextInput placeholder="One-Time Password" />
+      <Title>LIONS CLUBS D404B1 NIG</Title>
+      <CustumTextInput
+        placeholderTextColor={colors.grey}
+        keyboardType={'number-pad'}
+        placeholder="One-Time Password"
+      />
       <PrimaryButton
         onPress={() => reset({ index: 0, routes: [{ name: "Dashboard" }] })}
         text={"Continue"}

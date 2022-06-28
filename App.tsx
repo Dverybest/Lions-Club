@@ -8,7 +8,6 @@ import { theme } from "./utils";
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
-  const colorScheme = useColorScheme();
 
   if (!isLoadingComplete) {
     return null;
@@ -16,7 +15,7 @@ export default function App() {
     return (
       <SafeAreaProvider>
         <ThemeProvider theme={theme}>
-          <Navigation colorScheme={colorScheme} />
+          <Navigation/>
         </ThemeProvider>
         <StatusBar />
       </SafeAreaProvider>

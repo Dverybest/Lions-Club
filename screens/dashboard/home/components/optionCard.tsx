@@ -10,6 +10,7 @@ type IOptionCard = {
   imgSource: ImageSourcePropType;
   imgHeight: number;
   imgwidth: number;
+  onPress?: () => void;
 };
 export const OptionCard: FC<IOptionCard> = ({
   backgroundColor,
@@ -17,9 +18,10 @@ export const OptionCard: FC<IOptionCard> = ({
   imgSource,
   imgHeight,
   imgwidth,
+  onPress,
 }) => {
   return (
-    <Conatiner backgroundColor={backgroundColor}>
+    <Conatiner onPress={onPress} backgroundColor={backgroundColor}>
       <Image
         width={widthPixel(imgwidth)}
         height={heightPixel(imgHeight)}
