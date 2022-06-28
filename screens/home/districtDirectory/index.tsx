@@ -15,9 +15,9 @@ export const DistrictDirectory = () => {
   const { goBack } = useNavigation();
   return (
     <Container>
-      <Wrapper>
+       <Wrapper>
         <Bar onPress={goBack} />
-        <Title>Lion’s Club Members</Title>
+        <Title>Lions Club Members</Title>
         <SearchBar />
         <ListTitle>All Members</ListTitle>
         <FlatList
@@ -26,7 +26,7 @@ export const DistrictDirectory = () => {
           ItemSeparatorComponent={ItemSeparatorComponent}
           renderItem={() => <MemberDetails />}
         />
-      </Wrapper>
+      </Wrapper> 
     </Container>
   );
 };

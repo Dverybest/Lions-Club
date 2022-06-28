@@ -17,7 +17,7 @@ export const MemberDetails = ({ ...rest }) => {
           <Octicons size={fontPixel(12)} name={"location"} />
           <DetailText>Civil servant</DetailText>
         </Row>
-        <Row left>
+        <Row style={{  marginLeft: widthPixel(41)}}>
           <Feather size={fontPixel(12)} name={"phone"} />
           <DetailText>07068359554</DetailText>
         </Row>
@@ -36,11 +36,10 @@ const DetailsRow = styled.View({
   alignItems: "center",
   marginBottom: heightPixel(12),
 });
-const Row = styled.View<{ left?: boolean }>(({ left }) => ({
+const Row = styled.View({
   flexDirection: "row",
-  marginLeft: left ? widthPixel(41) : 0,
   alignItems: "center",
-}));
+});
 const Name = styled(BaseMediumText)({
   marginLeft: widthPixel(9),
   fontSize: fontPixel(13),

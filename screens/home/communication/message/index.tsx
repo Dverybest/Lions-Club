@@ -21,7 +21,6 @@ export const Message = () => {
 
 const Container = styled.View(({ theme }) => ({
   backgroundColor: "#F8FFFC",
-  height: heightPixel(101),
   borderRadius: widthPixel(8),
   paddingHorizontal: widthPixel(17),
   paddingVertical: heightPixel(10),
