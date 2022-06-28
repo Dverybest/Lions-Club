@@ -8,9 +8,10 @@ import report from "../../../assets/images/report.png";
 import membership from "../../../assets/images/membership.png";
 import { InfoCard } from "./components/infoCard";
 import { useNavigation } from "@react-navigation/native";
+import { IRootNav } from "../../auth/types";
 
 export const Home = () => {
-  const {navigate} = useNavigation();
+  const {navigate} = useNavigation<IRootNav>();
   return (
     <Conatiner>
       <Header title="Lion’s Club 404B1" />
@@ -35,6 +36,7 @@ export const Home = () => {
           <OptionCard
             imgSource={communication}
             imgHeight={70.61}
+            onPress={()=>navigate('HomeNavigator',{screen:'Communication'})}
             imgwidth={78}
             backgroundColor="#E0E9FF"
             title="Communication"
