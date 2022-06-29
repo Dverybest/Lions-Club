@@ -3,7 +3,7 @@ import { useTheme } from "@emotion/react";
 import { useNavigation } from "@react-navigation/native";
 import { EdgeInsets, useSafeAreaInsets } from "react-native-safe-area-context";
 import lion from "../../../assets/images/lion.png";
-import { TextInput } from "../../../components";
+import { KeyboardAvoidingView, TextInput } from "../../../components";
 import { PrimaryButton } from "../../../components/button";
 import { BaseMediumText } from "../../../components/typography";
 import { fontPixel, heightPixel, widthPixel } from "../../../utils";
@@ -14,16 +14,18 @@ export const Login = () => {
   const { colors } = useTheme();
   const { navigate } = useNavigation<IAuthNav>();
   return (
-    <Container insets={insets}>
-      <Logo source={lion} />
-      <Title>LIONS CLUBS D404B1 NIG</Title>
-      <CustumTextInput
-        placeholderTextColor={colors.grey}
-        keyboardType={'default'}
-        placeholder="Enter User ID"
-      />
-      <PrimaryButton text={"Login"} onPress={() => navigate("OTP")} />
-    </Container>
+    <KeyboardAvoidingView>
+      <Container insets={insets}>
+        <Logo source={lion} />
+        <Title>LIONS CLUBS D404B1 NIG</Title>
+        <CustumTextInput
+          placeholderTextColor={colors.grey}
+          keyboardType={'default'}
+          placeholder="Enter User ID"
+        />
+        <PrimaryButton text={"Login"} onPress={() => navigate("OTP")} />
+      </Container>
+    </KeyboardAvoidingView>
   );
 };
 

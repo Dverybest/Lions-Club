@@ -3,3 +3,4 @@ export * from "./typography";
 export * from "./header";
 export * from "./button";
 export * from "./searchBar";
+export * from './keyboardAvoidingView';

@@ -3,7 +3,7 @@ import { useTheme } from "@emotion/react";
 import { useNavigation } from "@react-navigation/native";
 import { EdgeInsets, useSafeAreaInsets } from "react-native-safe-area-context";
 import lion from "../../../assets/images/lion.png";
-import { TextInput } from "../../../components";
+import { KeyboardAvoidingView, TextInput } from "../../../components";
 import { PrimaryButton } from "../../../components/button";
 import { BaseMediumText } from "../../../components/typography";
 import { fontPixel, heightPixel, widthPixel } from "../../../utils";
@@ -14,19 +14,21 @@ export const OTP = () => {
   const { reset } = useNavigation<IRootNav>();
   const { colors } = useTheme();
   return (
-    <Container insets={insets}>
-      <Logo source={lion} />
-      <Title>LIONS CLUBS D404B1 NIG</Title>
-      <CustumTextInput
-        placeholderTextColor={colors.grey}
-        keyboardType={'number-pad'}
-        placeholder="One-Time Password"
-      />
-      <PrimaryButton
-        onPress={() => reset({ index: 0, routes: [{ name: "Dashboard" }] })}
-        text={"Continue"}
-      />
-    </Container>
+    <KeyboardAvoidingView>
+      <Container insets={insets}>
+        <Logo source={lion} />
+        <Title>LIONS CLUBS D404B1 NIG</Title>
+        <CustumTextInput
+          placeholderTextColor={colors.grey}
+          keyboardType={'default'}
+          placeholder="One-Time Password"
+        />
+        <PrimaryButton
+          onPress={() => reset({ index: 0, routes: [{ name: "Dashboard" }] })}
+          text={"Continue"}
+        />
+      </Container>
+    </KeyboardAvoidingView>
   );
 };
 
